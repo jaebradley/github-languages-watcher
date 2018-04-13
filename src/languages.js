@@ -3,10 +3,10 @@ import yaml from 'yamljs';
 import camelize from 'camelize';
 import fs from 'fs-extra';
 
-const LANGUAGE_FILE_URL = 'https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml';
+import { CANONICAL_GITHUB_LANGUAGE_FILE_URL, LANGUAGES_JSON_FILE_LOCATION } from './constants';
 
 const fetchLanguages = async () => {
-  const response = await axios.get(LANGUAGE_FILE_URL);
+  const response = await axios.get(CANONICAL_GITHUB_LANGUAGE_FILE_URL);
   const { data } = response;
   return yaml.parse(data);
 };
@@ -49,7 +49,7 @@ const formatLanguages = (languages) => {
   return formattedLanguages;
 };
 
-const output = languages => fs.writeJsonSync('./src/languages.json', languages);
+const output = languages => fs.writeJsonSync(LANGUAGES_JSON_FILE_LOCATION, languages, { spaces: 2 });
 
 const writeLanguages = async () => {
   const languages = await fetchLanguages();

@@ -1,18 +1,38 @@
 import git from 'simple-git/promise';
-import dotenv from 'dotenv';
 
-const { GH_TOKEN } = dotenv.config()
+import {
+  GIT_BRANCH_NAME_PREFIX,
+  GITHUB_LANGUAGES_CLIENT_CLONE_URL,
+  GITHUB_LANGUAGES_CLIENT_REMOTE_URL,
+  LANGUAGES_JSON_FILE_LOCATION,
+  COMMIT_MESSAGE,
+} from './constants';
 
-const GITHUB_LANGUAGES_CLIENT_REMOTE = `https://${GH_TOKEN}@github.com/jaebradley/github-languages-client`;
+const generateBranchName = () => `${GIT_BRANCH_NAME_PREFIX}-${new Date().valueOf()}`;
 
-const clone = async () => git().silent(false).clone(GITHUB_LANGUAGES_CLIENT_REMOTE);
-const checkout = async (branchName) => git().checkoutLocalBranch(branchName);
-const push = async (branchName) => git().push('origin', branchName);
-const hasDifferences = async () => git().diff(['--exit-code', 'src/languages.json']);
+const setupClonedClientRepository = async () => {
+  await exec(`git clone ${GITHUB_LANGUAGES_CLIENT_CLONE_URL}`);
+
+  process.chdir('./github-languages-client');
+
+  await exec('git remote rm origin');
+  await exec(`git remote add origin ${GITHUB_LANGUAGES_CLIENT_REMOTE_URL}`);
+}
+
+const createBranch = async (branchName) => exec(`git checkout -b ${branchName}`);
+
+const pushChanges = async (branchName) => {
+  await exec(`git add ${LANGUAGES_JSON_FILE_LOCATION}`);
+  await exec(`git commit -m "${COMMIT_MESSAGE}"`);
+  await exec(`git push origin ${branchName}`);
+}
+
+const diffLanguagesFile = async () => await exec(`git diff --quiet ${LANGUAGES_JSON_FILE_LOCATION}`);
 
 export {
-  clone,
-  push,
-  hasDifferences,
-  checkout,
-};
+  generateBranchName,
+  setupClonedClientRepository,
+  createBranch,
+  pushChanges,
+  diffLanguagesFile,
+}

@@ -36,6 +36,7 @@
     "child-process-promise": "^2.2.1",
     "dotenv": "^5.0.1",
     "fs-extra": "^5.0.0",
+    "octonode": "^0.9.2",
     "simple-git": "^1.92.0",
     "yamljs": "^0.3.0"
   }
