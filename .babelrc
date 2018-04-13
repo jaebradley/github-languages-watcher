@@ -1,6 +1,10 @@
 {
   "presets":[
-    "env"
+    "@babel/env"
+  ],
+  "plugins": [
+    "@babel/transform-async-to-generator",
+    "@babel/transform-runtime"
   ],
   "ignore": [
     "node_modules/**"
