@@ -18,7 +18,7 @@ jobs:
       before_script: greenkeeper-lockfile-update
       after_script: greenkeeper-lockfile-upload
     - stage: deploy
-      if: branch = master
+      if: (NOT type IN (pull_request)) AND (branch = master)
       script: npm run update-files
       before_script:
         - npm run build

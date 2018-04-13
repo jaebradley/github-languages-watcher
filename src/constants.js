@@ -12,6 +12,7 @@ const LANGUAGES_JSON_FILE_LOCATION = 'src/languages.json';
 const COMMIT_MESSAGE = 'fix(languages): update GitHub languages JSON file';
 const PR_TITLE = 'Update Languages File';
 const PR_BODY = `Update languages at ${LANGUAGES_JSON_FILE_LOCATION}`;
+const AUTHOR = 'jaebradley <jae.b.bradley@gmail.com>';
 
 export {
   GH_TOKEN,
@@ -24,4 +25,5 @@ export {
   COMMIT_MESSAGE,
   PR_TITLE,
   PR_BODY,
+  AUTHOR,
 };
