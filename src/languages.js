@@ -49,7 +49,11 @@ const formatLanguages = (languages) => {
   return formattedLanguages;
 };
 
-const output = languages => fs.writeJsonSync(LANGUAGES_JSON_FILE_LOCATION, languages, { spaces: 2 });
+const output = languages => fs.writeJsonSync(
+  LANGUAGES_JSON_FILE_LOCATION,
+  languages,
+  { spaces: 2 },
+);
 
 const writeLanguages = async () => {
   const languages = await fetchLanguages();

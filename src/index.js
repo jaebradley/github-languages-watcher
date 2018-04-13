@@ -32,6 +32,6 @@ const execute = async () => {
       throw e;
     }
   }
-}
+};
 
 execute();

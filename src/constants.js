@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const GH_TOKEN = process.env.GH_TOKEN;
+const { GH_TOKEN } = process.env;
 const GIT_BRANCH_NAME_PREFIX = 'update-languages';
 const GITHUB_LANGUAGES_CLIENT_REPOSITORY_NAME = 'jaebradley/github-languages-client';
 const GITHUB_LANGUAGES_CLIENT_CLONE_URL = `https://${GH_TOKEN}@github.com/${GITHUB_LANGUAGES_CLIENT_REPOSITORY_NAME}`;
