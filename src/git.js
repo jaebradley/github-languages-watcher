@@ -1,5 +1,4 @@
-import git from 'simple-git/promise';
-
+import { exec } from 'child-process-promise'
 import {
   GIT_BRANCH_NAME_PREFIX,
   GITHUB_LANGUAGES_CLIENT_CLONE_URL,

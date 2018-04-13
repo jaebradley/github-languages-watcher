@@ -6,7 +6,9 @@
   "main": "build/index.js",
   "scripts": {
     "build": "babel src/ -d build/ --delete-dir-on-start --copy-files",
-    "test": "jest --coverage --passWithNoTests"
+    "test": "jest --coverage --passWithNoTests",
+    "lint": "eslint --ext .js .",
+    "update-files": "build/index.js"
   },
   "keywords": [
     "github",
@@ -28,6 +30,7 @@
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
     "husky": "^0.14.3"
   },
   "dependencies": {
@@ -37,7 +40,6 @@
     "dotenv": "^5.0.1",
     "fs-extra": "^5.0.0",
     "octonode": "^0.9.2",
-    "simple-git": "^1.92.0",
     "yamljs": "^0.3.0"
   }
 }
