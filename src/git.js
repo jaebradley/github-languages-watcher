@@ -1,10 +1,11 @@
-import { exec } from 'child-process-promise'
+import { exec } from 'child-process-promise';
 import {
   GIT_BRANCH_NAME_PREFIX,
   GITHUB_LANGUAGES_CLIENT_CLONE_URL,
   GITHUB_LANGUAGES_CLIENT_REMOTE_URL,
   LANGUAGES_JSON_FILE_LOCATION,
   COMMIT_MESSAGE,
+  AUTHOR,
 } from './constants';
 
 const generateBranchName = () => `${GIT_BRANCH_NAME_PREFIX}-${new Date().valueOf()}`;
@@ -16,17 +17,17 @@ const setupClonedClientRepository = async () => {
 
   await exec('git remote rm origin');
   await exec(`git remote add origin ${GITHUB_LANGUAGES_CLIENT_REMOTE_URL}`);
-}
+};
 
-const createBranch = async (branchName) => exec(`git checkout -b ${branchName}`);
+const createBranch = async branchName => exec(`git checkout -b ${branchName}`);
 
 const pushChanges = async (branchName) => {
   await exec(`git add ${LANGUAGES_JSON_FILE_LOCATION}`);
-  await exec(`git commit -m "${COMMIT_MESSAGE}"`);
+  await exec(`git commit -m "${COMMIT_MESSAGE}" --author=${AUTHOR}`);
   await exec(`git push origin ${branchName}`);
-}
+};
 
-const diffLanguagesFile = async () => await exec(`git diff --quiet ${LANGUAGES_JSON_FILE_LOCATION}`);
+const diffLanguagesFile = async () => exec(`git diff --quiet ${LANGUAGES_JSON_FILE_LOCATION}`);
 
 export {
   generateBranchName,
@@ -34,4 +35,4 @@ export {
   createBranch,
   pushChanges,
   diffLanguagesFile,
-}
+};

@@ -14,14 +14,20 @@ const createPR = (branchName) => {
     body: PR_BODY,
     head: branchName,
     base: 'master',
+    // eslint-disable-next-line no-unused-vars
   }, (err, data, headers) => {
     if (err) {
       throw err;
     }
 
-    const { number, html_url: url, state, title } = data;
+    const {
+      number,
+      html_url: url,
+      state,
+      title,
+    } = data;
     console.log(`PR #${number} (${title}) at ${url} is now ${state}`);
   });
-}
+};
 
 export default createPR;
