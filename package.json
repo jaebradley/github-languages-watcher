@@ -1,0 +1,29 @@
+{
+  "name": "github-languages-watcher",
+  "private": true,
+  "version": "0.0.0-development",
+  "description": "Job that updates the GitHubLanguagesClient when it detects new languages on GitHub",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "jest --coverage --passWithNoTests"
+  },
+  "keywords": [
+    "github",
+    "languages"
+  ],
+  "author": "jae.b.bradley@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.44",
+    "@babel/core": "^7.0.0-beta.44",
+    "@babel/preset-env": "^7.0.0-beta.44",
+    "babel-jest": "^22.4.3",
+    "codecov": "^3.0.0",
+    "enzyme": "^3.3.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "husky": "^0.14.3"
+  }
+}
