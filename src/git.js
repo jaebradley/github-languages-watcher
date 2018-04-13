@@ -23,7 +23,7 @@ const createBranch = async branchName => exec(`git checkout -b ${branchName}`);
 
 const pushChanges = async (branchName) => {
   await exec(`git add ${LANGUAGES_JSON_FILE_LOCATION}`);
-  await exec(`git commit -m "${COMMIT_MESSAGE}" --author=${AUTHOR}`);
+  await exec(`git commit --author=${AUTHOR} -m "${COMMIT_MESSAGE}"`);
   await exec(`git push origin ${branchName}`);
 };
 
