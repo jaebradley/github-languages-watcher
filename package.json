@@ -8,7 +8,7 @@
     "build": "babel src/ -d build/ --delete-dir-on-start --copy-files",
     "test": "jest --coverage --passWithNoTests",
     "lint": "eslint --ext .js .",
-    "update-files": "build/index.js"
+    "update-files": "node build/index.js"
   },
   "keywords": [
     "github",
