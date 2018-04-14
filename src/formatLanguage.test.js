@@ -1,7 +1,4 @@
-import {
-  formatLanguage,
-  formatLanguages,
-} from './languages';
+import formatLanguage from './formatLanguage';
 
 describe('languages', () => {
   const name = 'NAME';
@@ -43,50 +40,6 @@ describe('languages', () => {
         tmScope: 'none',
       };
       expect(formatLanguage({ name, language: {} })).toEqual(expected);
-    });
-  });
-
-  describe('#formatLanguages', () => {
-    it('should format languages', () => {
-      const expected = [
-        {
-          aceMode: 'aceMode',
-          aliases: [
-            'alias1',
-            'alias2',
-            'alias3',
-            'foo',
-            'bar',
-          ],
-          name: 'foo',
-          searchable: 'searchable',
-          tmScope: 'tmScope',
-          wrap: 'wrap',
-        },
-        {
-          aceMode: 'aceMode',
-          aliases: [
-            'alias1',
-            'alias2',
-            'alias3',
-            'foo',
-            'bar',
-          ],
-          name: 'bar',
-          searchable: 'searchable',
-          tmScope: 'tmScope',
-          wrap: 'wrap',
-        },
-        {
-          aceMode: 'text',
-          aliases: ['baz'],
-          name: 'baz',
-          searchable: 'true',
-          tmScope: 'none',
-          wrap: 'false',
-        },
-      ];
-      expect(formatLanguages()).toEqual(expected);
     });
   });
 });
