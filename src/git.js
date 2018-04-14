@@ -9,7 +9,7 @@ import {
   EMAIL_ADDRESS,
 } from './constants';
 
-const generateBranchName = () => `${GIT_BRANCH_NAME_PREFIX}-${new Date().valueOf()}`;
+const generateBranchName = () => `${GIT_BRANCH_NAME_PREFIX}-${Date.now().valueOf()}`;
 
 const setupClonedClientRepository = async () => {
   await exec(`git clone ${GITHUB_LANGUAGES_CLIENT_CLONE_URL}`);
