@@ -1,7 +1,7 @@
 import createPR from './createPR';
-import fetchLanguages from './fetchLanguages';
-import writeLanguagesFile from './writeLanguagesFile';
-import formatLanguages from './formatLanguages';
+import fetchLanguages from './languages/fetchLanguages';
+import writeLanguagesFile from './languages/writeLanguagesFile';
+import formatLanguages from './languages/formatLanguages';
 import {
   generateBranchName,
   setupClonedClientRepository,

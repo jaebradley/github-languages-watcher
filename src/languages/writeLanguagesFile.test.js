@@ -1,7 +1,7 @@
 import fs from 'fs-extra';
 
 import writeLanguagesFile from './writeLanguagesFile';
-import { LANGUAGES_JSON_FILE_LOCATION } from './constants';
+import { LANGUAGES_JSON_FILE_LOCATION } from '../constants';
 
 describe('#writeLanguagesFile', () => {
   const languages = 'languages';

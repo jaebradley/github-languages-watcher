@@ -2,7 +2,7 @@ import axios from 'axios';
 import yaml from 'yamljs';
 
 import fetchLanguages from './fetchLanguages';
-import { CANONICAL_GITHUB_LANGUAGE_FILE_URL } from './constants';
+import { CANONICAL_GITHUB_LANGUAGE_FILE_URL } from '../constants';
 
 describe('#fetchLanguages', () => {
   const data = 'data';
