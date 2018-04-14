@@ -1,5 +1,7 @@
-import { writeLanguages } from './languages';
 import createPR from './createPR';
+import fetchLanguages from './languages/fetchLanguages';
+import writeLanguagesFile from './languages/writeLanguagesFile';
+import formatLanguages from './languages/formatLanguages';
 import {
   generateBranchName,
   setupClonedClientRepository,
@@ -15,8 +17,10 @@ const execute = async () => {
   console.log('Setup cloned client repository');
   await createBranch(branchName);
   console.log('Created branch');
-  await writeLanguages();
-  console.log('Wrote updated language file');
+  const languages = await fetchLanguages();
+  console.log('Fetched languages');
+  writeLanguagesFile(formatLanguages(languages));
+  console.log('Wrote languages file');
   try {
     await diffLanguagesFile();
     console.log('No difference in language file');
