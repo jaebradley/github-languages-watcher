@@ -1,6 +1,6 @@
 # GitHub Languages Watcher
 
-A naive job that looks for updates to [the `languages.yml` file](https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml) in [the `github/linguist` repository](https://github.com/github/linguist).
+A naive Travis CI job that looks for updates to [the `languages.yml` file](https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml) in [the `github/linguist` repository](https://github.com/github/linguist).
 
 ## Why?
 
@@ -39,14 +39,14 @@ I thought about using Heroku to run this job - and I could definitely see myself
 In this cron job, I do a
 
 1. `git clone` the client repository
-  1. Set the author information
+    1. Set the author information
 1. Create a new branch
 1. Fetch the contents of `languages.yml`
 1. Write `JSON` to `languages.json` file
 1. `git diff` the file
 1. If it's changed...
-  1. I `git add` and `git commit` the change with the appropriate `semantic-release` commit message syntax
-  1. I then create a PR using [the `octonode`](https://github.com/pksunkara/octonode) library
+    1. I `git add` and `git commit` the change with the appropriate `semantic-release` commit message syntax
+    1. I then create a PR using [the `octonode`](https://github.com/pksunkara/octonode) library
 1. If it hasn't changed...do nothing!
 
 ## Tradeoffs
