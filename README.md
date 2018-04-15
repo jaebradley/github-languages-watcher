@@ -1,12 +1,14 @@
 # GitHub Languages Watcher
 
-An naive job that looks for updates to [the `languages.yml` file](https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml) in [the `github/linguist` repository](https://github.com/github/linguist).
+A naive job that looks for updates to [the `languages.yml` file](https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml) in [the `github/linguist` repository](https://github.com/github/linguist).
 
 ## Why?
 
-I built [a NodeJS client for GitHub languages](https://github.com/jaebradley/github-languages-client) (mostly because I'm a huge nerd but also because there's not really a good way to get this information)<sup>[1](#good-way-footnote)</sup>.
+I built [a NodeJS client for GitHub languages](https://github.com/jaebradley/github-languages-client) (mostly because I'm a huge nerd but also because there's not really a good way to get this information). <sup>[1](#good-way-footnote)</sup>
 
-What are these languages used for? You can use them for GitHub's [`Advanced Search`](https://github.com/search/advanced), for example (and the associated search API).
+What are these languages used for?
+
+You can use them for GitHub's [`Advanced Search`](https://github.com/search/advanced), for example (and [the associated `search` API](https://developer.github.com/v3/search/#parameters-2)).
 
 However, the client uses [an underlying `JSON` file](https://github.com/jaebradley/github-languages-client/blob/master/src/languages.json) to power it's API (it's essentially a thin wrapper around a `JSON` blob).
 
@@ -37,14 +39,14 @@ I thought about using Heroku to run this job - and I could definitely see myself
 In this cron job, I do a
 
 1. `git clone` the client repository
-  * Set the author information
+  1. Set the author information
 1. Create a new branch
 1. Fetch the contents of `languages.yml`
 1. Write `JSON` to `languages.json` file
 1. `git diff` the file
 1. If it's changed...
-  * I `git add` and `git commit` the change with the appropriate `semantic-release` commit message syntax
-  * I then create a PR using [the `octonode`](https://github.com/pksunkara/octonode) library
+  1. I `git add` and `git commit` the change with the appropriate `semantic-release` commit message syntax
+  1. I then create a PR using [the `octonode`](https://github.com/pksunkara/octonode) library
 1. If it hasn't changed...do nothing!
 
 ## Tradeoffs
@@ -59,6 +61,6 @@ In this cron job, I do a
 
 <ul>
   <li>
-    <a name="good-way-footnote">This would be a really not great time to learn that there is an API endpoint that delivers this information...</a>
+    <a name="good-way-footnote"><sup>1</sup>This would be a really not great time to learn that there is an API endpoint that delivers this information...</a>
   </li>
 </ul>
