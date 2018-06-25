@@ -1,5 +1,7 @@
 # GitHub Languages Watcher
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/jaebradley/github-languages-watcher.svg)](https://greenkeeper.io/)
+
 A naive Travis CI job that looks for updates to [the `languages.yml` file](https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml) in [the `github/linguist` repository](https://github.com/github/linguist).
 
 ## Why?
